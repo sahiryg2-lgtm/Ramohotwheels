@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramo de Hot Wheels 🏎️💐</title>
+<style>
+:root {
+--bg-color: #0b0c10;
+--card-bg: rgba(25, 27, 38, 0.85);
+--accent-color: #ff0055;
+--text-color: #ffffff;
+--gold-color: #ffbd59;
+}
+​* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+​body {
+background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: var(--text-color);
+overflow-x: hidden;
+padding: 20px;
+}
+​/* Fondo con luces de estrellas */
+.stars {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
+background-size: 200px 200px;
+animation: snow 4s linear infinite;
+}
+​@keyframes snow {
+0% { transform: translateY(0px); }
+100% { transform: translateY(200px); }
+}
+​.container {
+max-width: 450px;
+width: 100%;
+background: var(--card-bg);
+border: 2px solid rgba(255, 0, 85, 0.3);
+border-radius: 20px;
+padding: 25px;
+text-align: center;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 85, 0.2);
+backdrop-filter: blur(10px);
+position: relative;
+z-index: 10;
+}
+​.title {
+font-size: 1.8rem;
+color: var(--gold-color);
+margin-bottom: 15px;
+text-shadow: 0 0 10px rgba(255, 189, 89, 0.5);
+}
+​/* Galería / Ramo contenedor */
+.bouquet-wrapper {
+position: relative;
+width: 100%;
+min-height: 280px;
+margin: 15px 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+​.main-image {
+max-width: 85%;
+height: auto;
+filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+animation: float 3s ease-in-out infinite;
+}
+​@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+​/* Carritos animados */
+.car-animation {
+position: absolute;
+width: 70px;
+height: auto;
+animation: drive 6s linear infinite;
+}
+​@keyframes drive {
+0% { left: -20%; transform: rotate(0deg); }
+50% { transform: rotate(5deg); }
+100% { left: 110%; transform: rotate(0deg); }
+}
+​.message-btn {
+background: linear-gradient(45deg, #ff0055, #ff5500);
+color: white;
+border: none;
+padding: 12px 25px;
+font-size: 1.1rem;
+font-weight: bold;
+border-radius: 30px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+transition: all 0.3s ease;
+margin-top: 15px;
+}
+​.message-btn:hover {
+transform: scale(1.05);
+box-shadow: 0 6px 20px rgba(255, 0, 85, 0.6);
+}
+​.secret-message {
+display: none;
+margin-top: 20px;
+padding: 15px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 12px;
+font-size: 1rem;
+line-height: 1.5;
+color: #e0e0e0;
+animation: fadeIn 0.5s ease;
+}
+​@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+​<div class="stars"></div>
+​<div class="container">
+<h1 class="title">¡Feliz Día de los Carritos Hot Wheels! 💘 🏎️</h1>
+​<div class="bouquet-wrapper">
+<!-- Muestra las imágenes que subiste al repositorio -->
+<img src="1000120574-removebg-preview.png" alt="Ramo de Flores" class="main-image">
+</div>
+​<button class="message-btn" onclick="toggleMessage()">Ver Mensaje Especial ✨</button>
+​<div class="secret-message" id="cardMessage">
+<p>Un detalle especial preparado para ti. ¡Espero que disfrutes mucho este ramo de carritos y flores virtuales! 🚗🫶🏻🕷️ </p>
+</div>
+</div>
+​<script>
+function toggleMessage() {
+const msg = document.getElementById('cardMessage');
+if (msg.style.display === 'block') {
+msg.style.display = 'none';
+} else {
+msg.style.display = 'block';
+}
+}
+</script>
+​</body>
+</html>
