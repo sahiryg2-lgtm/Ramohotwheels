@@ -1,212 +1,252 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¡Feliz Día de los Carritos Hot Wheels! 🏎️💐</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
-​<style>
-:root {
---bg-dark: #0a0814;
---accent-neon: #ff0055;
---accent-glow: #00d4ff;
---gold: #ffd700;
---text-light: #f0f0f8;
-}
-​* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-​body {
-background: radial-gradient(circle at center, #1a102f 0%, #080511 100%);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-color: var(--text-light);
-font-family: 'Montserrat', sans-serif;
-overflow-x: hidden;
-padding: 20px;
-position: relative;
-}
-​/* Fondo de estrellas y destellos */
-.stars {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-pointer-events: none;
-background:
-radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-radial-gradient(2px 2px at 50px 160px, #00d4ff, rgba(0,0,0,0)),
-radial-gradient(2px 2px at 90px 40px, #ff0055, rgba(0,0,0,0)),
-radial-gradient(3px 3px at 130px 80px, #ffd700, rgba(0,0,0,0)),
-radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
-background-size: 250px 250px;
-animation: twinkle 4s ease-in-out infinite alternate;
-}
-​@keyframes twinkle {
-0% { opacity: 0.5; transform: scale(1); }
-100% { opacity: 1; transform: scale(1.05); }
-}
-​/* Fuegos artificiales flotantes (destellos) */
-.firework {
-position: absolute;
-width: 6px;
-height: 6px;
-border-radius: 50%;
-pointer-events: none;
-animation: explode 2.5s infinite ease-out;
-}
-​.fw-1 { top: 15%; left: 15%; background: #ff0055; box-shadow: 0 0 15px #ff0055; animation-delay: 0s; }
-.fw-2 { top: 20%; right: 15%; background: #00d4ff; box-shadow: 0 0 15px #00d4ff; animation-delay: 0.8s; }
-.fw-3 { top: 75%; left: 10%; background: #ffd700; box-shadow: 0 0 15px #ffd700; animation-delay: 1.5s; }
-​@keyframes explode {
-0% { transform: scale(1); opacity: 1; }
-100% { transform: scale(15); opacity: 0; }
-}
-​/* Contenedor Principal Elegante */
-.card-container {
-max-width: 460px;
-width: 100%;
-background: rgba(18, 14, 33, 0.75);
-border: 1px solid rgba(255, 0, 85, 0.4);
-border-radius: 25px;
-padding: 30px 20px;
-text-align: center;
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 212, 255, 0.15);
-backdrop-filter: blur(12px);
-position: relative;
-z-index: 10;
-}
-​/* Título Flotante con Neón */
-.title {
-font-size: 1.8rem;
-font-weight: 800;
-background: linear-gradient(45deg, #ff0055, #ffd700, #00d4ff);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
-margin-bottom: 20px;
-animation: floatTitle 3s ease-in-out infinite;
-}
-​@keyframes floatTitle {
-0%, 100% { transform: translateY(0px); }
-50% { transform: translateY(-6px); }
-}
-​/* Área del Ramo con Carritos */
-.bouquet-wrapper {
-position: relative;
-width: 100%;
-margin: 20px 0;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-​.flower-img {
-width: 85%;
-max-width: 320px;
-height: auto;
-filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
-}
-​/* Carritos colocados sobre el ramo */
-.car-overlay {
-position: absolute;
-width: 65px;
-height: auto;
-filter: drop-shadow(0 4px 8px rgba(0,0,0,0.7));
-transition: transform 0.3s ease;
-}
-​.car-overlay:hover {
-transform: scale(1.2) rotate(5deg);
-}
-​.car-1 { top: 25%; left: 20%; transform: rotate(-15deg); }
-.car-2 { top: 35%; right: 20%; transform: rotate(20deg); }
-.car-3 { top: 50%; left: 42%; transform: rotate(-5deg); }
-​/* Botón Neón */
-.neon-btn {
-background: transparent;
-color: #fff;
-border: 2px solid var(--accent-neon);
-border-radius: 30px;
-padding: 14px 28px;
-font-size: 1rem;
-font-weight: 700;
-letter-spacing: 1px;
-cursor: pointer;
-text-transform: uppercase;
-box-shadow: 0 0 10px var(--accent-neon), inset 0 0 10px var(--accent-neon);
-transition: all 0.3s ease;
-margin-top: 15px;
-}
-​.neon-btn:hover {
-background: var(--accent-neon);
-color: #fff;
-box-shadow: 0 0 25px var(--accent-neon), 0 0 50px var(--accent-neon);
-transform: scale(1.05);
-}
-​/* Mensaje Secreto */
-.secret-letter {
-display: none;
-margin-top: 25px;
-padding: 20px;
-background: rgba(255, 255, 255, 0.05);
-border-left: 3px solid var(--accent-glow);
-border-radius: 12px;
-font-size: 0.95rem;
-line-height: 1.6;
-color: #d1d5db;
-text-align: left;
-animation: fadeIn 0.6s ease forwards;
-}
-​.secret-letter h3 {
-font-family: 'Great Vibes', cursive;
-font-size: 2rem;
-color: var(--gold);
-margin-bottom: 8px;
-}
-​@keyframes fadeIn {
-from { opacity: 0; transform: translateY(15px); }
-to { opacity: 1; transform: translateY(0); }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Día de los Carritos Hot Wheels! 🏎️💐</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0a0814;
+      --accent-neon: #ff0055;
+      --accent-glow: #00d4ff;
+      --gold: #ffd700;
+      --text-light: #f0f0f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #1a102f 0%, #080511 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Fondo de estrellas y destellos */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #00d4ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #ff0055, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 130px 80px, #ffd700, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
+      background-size: 250px 250px;
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.5; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 2.5s infinite ease-out;
+    }
+
+    .sp-1 { top: 15%; left: 15%; background: #ff0055; box-shadow: 0 0 15px #ff0055; animation-delay: 0s; }
+    .sp-2 { top: 20%; right: 15%; background: #00d4ff; box-shadow: 0 0 15px #00d4ff; animation-delay: 0.8s; }
+    .sp-3 { top: 75%; left: 10%; background: #ffd700; box-shadow: 0 0 15px #ffd700; animation-delay: 1.5s; }
+
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(10); opacity: 0; }
+    }
+
+    /* Contenedor Principal Elegante */
+    .card-container {
+      max-width: 460px;
+      width: 100%;
+      background: rgba(18, 14, 33, 0.85);
+      border: 1px solid rgba(255, 0, 85, 0.4);
+      border-radius: 25px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 212, 255, 0.15);
+      backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Título Flotante con Neón */
+    .title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, #ff0055, #ffd700, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+      margin-bottom: 20px;
+      animation: floatTitle 3s ease-in-out infinite;
+    }
+
+    @keyframes floatTitle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Área del Ramo con Carritos Integrados */
+    .bouquet-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 320px;
+    }
+
+    .flower-img {
+      width: 85%;
+      max-width: 320px;
+      height: auto;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    }
+
+    /* Posicionamiento de cada carrito sobre las flores */
+    .car-overlay {
+      position: absolute;
+      width: 75px;
+      height: auto;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+      transition: transform 0.3s ease;
+      animation: carFloat 4s ease-in-out infinite alternate;
+    }
+
+    .car-overlay:hover {
+      transform: scale(1.3) rotate(5deg) !important;
+      z-index: 20;
+    }
+
+    .car-1 { top: 12%; left: 18%; transform: rotate(-15deg); animation-delay: 0s; }
+    .car-2 { top: 15%; right: 18%; transform: rotate(15deg); animation-delay: 0.5s; }
+    .car-3 { top: 38%; left: 10%; transform: rotate(-25deg); animation-delay: 1s; }
+    .car-4 { top: 40%; right: 10%; transform: rotate(20deg); animation-delay: 1.5s; }
+    .car-5 { top: 52%; left: 38%; transform: rotate(-5deg); animation-delay: 2s; }
+
+    @keyframes carFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* Botón Neón */
+    .neon-btn {
+      background: transparent;
+      color: #fff;
+      border: 2px solid var(--accent-neon);
+      border-radius: 30px;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px var(--accent-neon), inset 0 0 12px var(--accent-neon);
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .neon-btn:hover {
+      background: var(--accent-neon);
+      color: #fff;
+      box-shadow: 0 0 25px var(--accent-neon), 0 0 50px var(--accent-neon);
+      transform: scale(1.05);
+    }
+
+    /* Mensaje Secreto */
+    .secret-letter {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--accent-glow);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #d1d5db;
+      text-align: left;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .secret-letter h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-​<div class="stars"></div>
-<div class="firework fw-1"></div>
-<div class="firework fw-2"></div>
-<div class="firework fw-3"></div>
-​<div class="card-container">
-<h1 class="title">¡Feliz Día de los Carritos Hot Wheels! 💘 🏎️</h1>
-​<div class="bouquet-wrapper">
-<!-- Ramo de Flores Principal -->
-<img src="1000120574-removebg-preview.png" alt="Ramo de Flores" class="flower-img">
-​<!-- Carritos Hot Wheels sobre las flores -->
-<img src="1000120575-removebg-preview.png" alt="Hot Wheels 1" class="car-overlay car-1">
-<img src="1000120576-removebg-preview.png" alt="Hot Wheels 2" class="car-overlay car-2">
-<img src="1000120581-removebg-preview.png" alt="Hot Wheels 3" class="car-overlay car-3">
-</div>
-​<button class="neon-btn" onclick="openLetter()">Abrir Carta Especial 🫶🏻 </button>
-​<div class="secret-letter" id="letter">
-<h3>Para alguien especial...</h3>
-<p>Un pequeño detalle preparado con mucho cariño. Que este ramo de flores y velocidad te saque una sonrisa hoy y siempre. ¡Disfruta mucho tu día de Hot Wheels! 🏎️🌸✨</p>
-</div>
-</div>
-​<script>
-function openLetter() {
-const letter = document.getElementById('letter');
-if (letter.style.display === 'block') {
-letter.style.display = 'none';
-} else {
-letter.style.display = 'block';
-}
-}
-</script>
-​</body>
+
+  <div class="stars"></div>
+  <div class="sparkle sp-1"></div>
+  <div class="sparkle sp-2"></div>
+  <div class="sparkle sp-3"></div>
+
+  <div class="card-container">
+    <h1 class="title">¡Feliz Día de los Carritos Hot Wheels! 💘 🏎️</h1>
+
+    <div class="bouquet-wrapper">
+      <!-- Ramo de Flores Principal -->
+      <img src="1000120574-removebg-preview.png" alt="Ramo de Flores" class="flower-img">
+
+      <!-- Carritos Hot Wheels subidos previamente -->
+      <img src="1000120575-removebg-preview.png" alt="Hot Wheels 1" class="car-overlay car-1">
+      <img src="1000120576-removebg-preview.png" alt="Hot Wheels 2" class="car-overlay car-2">
+      <img src="1000120581-removebg-preview.png" alt="Hot Wheels 3" class="car-overlay car-3">
+      <img src="1000120582-removebg-preview.png" alt="Hot Wheels 4" class="car-overlay car-4">
+      <img src="1000120583-removebg-preview.png" alt="Hot Wheels 5" class="car-overlay car-5">
+    </div>
+
+    <button class="neon-btn" onclick="openLetter()">Abrir Carta Especial ✨</button>
+
+    <div class="secret-letter" id="letter">
+      <h3>Para alguien especial...</h3>
+      <p>Un pequeño detalle preparado con mucho cariño. Que este ramo lleno de flores y carritos de carreras te traiga mucha alegría hoy y siempre. ¡Disfruta al máximo tu día! 🏎️🌸✨</p>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      const letter = document.getElementById('letter');
+      if (letter.style.display === 'block') {
+        letter.style.display = 'none';
+      } else {
+        letter.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
 </html>
